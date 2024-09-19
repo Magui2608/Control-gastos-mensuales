@@ -1,10 +1,10 @@
 body {
     font-family: Arial, sans-serif;
 
-    background: url('../img/codigo.svg'), linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
+    background: url('../img/imagen.svg');
 
 
-    background-size: auto;
+    background-size:cover;
     background-repeat: no-repeat;
     /* Hace que la imagen cubra todo el área del elemento */
     background-position: right;
@@ -16,27 +16,29 @@ body {
 
 input[type="text"],
 input[type="number"] {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    font-style: italic;
     width: calc(100% - 20px);
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 3px solid #ccc;
+    border-radius: 23px;
+    text-align: center;
 }
 
 button {
     padding: 10px 40px;
     width: fit-content;
-    background-color: #1875E8;
+    background-color: #81627d;
     color: #fff;
     font-size: 1.2rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #4cae4c;
+    background-color: #5f8d5f;
 }
 
 ul {
@@ -50,10 +52,15 @@ ul {
 
 ul li {
     padding: 10px;
-    background-color: #041832;
+    background: linear-gradient(0deg, #8a8a8d, #6d6d6e),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
     border-bottom: 1px solid #eee;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     display: flex;
+    font-size: larger;
     justify-content: space-between;
+    margin-bottom: 2px;
 }
 
 ul li:last-child {
