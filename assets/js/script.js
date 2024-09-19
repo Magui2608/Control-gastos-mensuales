@@ -1,15 +1,20 @@
+//Este código crea una aplicación simple para registrar y gestionar gastos personales.
+
+// Declaración de variables globales para almacenar la lista de gastos y el índice del gasto actual
 let listaNombresGastos = [];
 let listaValoresGastos = [];
 let listaDescripcionesGastos = [];
-let gastoActual = -1;
+let gastoActual = -1; // Declaramos una variable para indicar un nuevo gasto que se debe agregar a la lista o uno que hay que modificar.
 
 //Esta función se invoca al momento en que el usuario hace click en el botón
+//Obtiene los valores ingresados por el usuario, valida que estén completos y que el valor del gasto sea un número.
+//También agrega o modifica un gasto, según el valor de gastoActual. Actualiza la lista de gastos en la interfaz y limpia los campos del formulario.
 function clickBoton() {
     let nombreGasto = document.getElementById("nombreGasto").value;
     let valorGasto = document.getElementById("valorGasto").value;
     let descripcionGasto = document.getElementById("descripcionGasto").value;
 
-    //Verifica que se ingrese el nombre del gaso, su descripción y valor.
+    //Verifica que se ingrese el nombre del gaso, su descripción y valor numérico del gasto.
     if (nombreGasto === '' || descripcionGasto === '' ||isNaN(valorGasto)) {
         alert('Por favor, ingrese nombre del gasto, descripción y valor');
         return;
@@ -41,7 +46,7 @@ function clickBoton() {
     actualizarListaGastos();
 }
 
-//Genera una lista con los gastos ingresados, su detalle y valor y calcula el total de los mismos
+//Función que construye una lista HTML actualizada con los detalles de cada gasto, calculando el total de los mismos.
 function actualizarListaGastos() {
     const listaElementos = document.getElementById("listaDeGastos");
     const totalElementos = document.getElementById("totalGastos");
@@ -64,14 +69,14 @@ function actualizarListaGastos() {
     limpiar();
 }
 
-//Limpia los campos una vez han sido ingresados a la lista
+//Limpia los campos del formulario después de agregar o modificar un gasto.
 function limpiar() {
     document.getElementById("nombreGasto").value = "";
     document.getElementById("valorGasto").value = "";
     document.getElementById("descripcionGasto").value = "";
 }
 
-//Elimina los gastos no desados
+//Elimina un gasto de las listas y actualiza la lista en la interfaz.
 function eliminarGasto(posicion) {
     listaNombresGastos.splice(posicion, 1);
     listaValoresGastos.splice(posicion, 1);
@@ -79,7 +84,7 @@ function eliminarGasto(posicion) {
     actualizarListaGastos();
 }
 
-//Modifica los gastos ingresados
+//Función que permite modificar un gasto existente.
 function modificarGasto(posicion) {
     document.getElementById('nombreGasto').value = listaNombresGastos[posicion];
     document.getElementById('valorGasto').value = listaValoresGastos[posicion];
